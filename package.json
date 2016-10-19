@@ -1,0 +1,27 @@
+{
+  "name": "angular-upload",
+  "version": "1.0.0",
+  "description": "Tmj default upload approach",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMJPEngineering/angular-upload.git"
+  },
+  "keywords": [
+    "tmj-upload",
+    "upload"
+  ],
+  "author": "TMJP Engineering (https://github.com/TMJPEngineering)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TMJPEngineering/angular-upload/issues"
+  },
+  "homepage": "https://github.com/TMJPEngineering/angular-upload#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

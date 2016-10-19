@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <title>TMJ Show Modal</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type = "text/css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css" type = "text/css">
+    <link rel="stylesheet" href="../dist/css/upload.css" type = "text/css">
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-md-8 col-md-offset-2" ng-controller = "AppController as ac">
+          <h1>TMJ Upload Demo</h1>
+          <hr>
+          <div class = "row">
+            <div class = "col-md-12">
+              <h2> Single Upload</h2>
+                <ul>
+                  <li>target - element to display what is uploaded.</li>
+                  <li>file-model - a variable to store the file to be uploaded same as `ngModel`.</li>
+                </ul>
+              <hr>
+              <upload class = "btn btn-primary" target="#test" file-model="ac.test">Upload</upload>
+              <div class ="col-md-12" id="test">
+                <h3>#Container</h3>
+              </div>
+              <hr>
+            </div>
+            <br><br>
+            <div class = "col-md-12">
+              <h2> Multiple Upload</h2>
+                <ul>
+                  <li>target - element to display what is uploaded.</li>
+                  <li>file-model - a variable to store the file to be uploaded same as `ngModel`.</li>
+                  <li>multiple - to identify that multiple files is going to be uploaded.</li>
+                </ul>
+              <hr>
+              <upload class = "btn btn-primary" target="#test2" multiple file-model="ac.test">Upload</upload>
+              <div class ="col-md-12" id="test2">
+                <h3>#Container</h3>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Required Script -->
+    <script src = "../node_modules/angular/angular.min.js"></script>
+    <!-- Module level script -->
+    <script src = "../dist/js/angular-upload.js"></script>
+    <!-- <script src = "../src/upload.module.js"></script>
+    <script src = "../src/directives/upload.directive.js"></script>
+    <script src = "../src/directives/change-file.directive.js"></script>
+    <script src = "../src/factories/file-reader.factory.js"></script>
+    <script src = "../src/providers/upload.provider.js"></script>
+    <script src = "../src/templates/upload-container.run.js"></script>
+    <script src = "../src/constants/upload.constant.js"></script> -->
+
+    <!--  Page level script -->
+    <script src = "js/index.module.js"></script>
+    <script src = "js/index.controller.js"></script>
+  </body>
+</html>
