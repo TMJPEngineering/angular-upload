@@ -1,5 +1,5 @@
 {
-  "name": "angular-upload",
+  "name": "tmj-angular-upload",
   "version": "1.0.0",
   "description": "Tmj default upload approach",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "tmj-upload",
     "upload"
   ],
-  "author": "TMJP Engineering (https://github.com/TMJPEngineering)",
+  "author": "TMJP Engineering, Rej Mediodia",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TMJPEngineering/angular-upload/issues"

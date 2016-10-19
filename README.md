@@ -7,7 +7,7 @@ TMJ default approach of uploading files using the directive
 
 # Installation
 
-    npm install angular-upload
+    npm install tmj-angular-upload
 
 # Usage
 
@@ -34,8 +34,8 @@ Element Attributes
 
 # TODO
 
-- Test Scripts
-- Currently images are only supported: create a support to other files
+- Test Scripts.
+- Currently images are only supported: create a support to other files.
 
 # License
 
