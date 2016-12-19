@@ -286,7 +286,7 @@
 
             // if the target is an image element change the element
             if(elem.attr('src') != undefined) {
-                setFileImageSrc(file, targetElem);
+                setFileImageSrc(file, elem);
             }
 
             //else the target is div or other container
