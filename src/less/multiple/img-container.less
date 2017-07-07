@@ -1,0 +1,41 @@
+.image-container-panel {
+    position:relative;
+    background: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px grey;
+    padding-bottom: 10px;
+    height: 200px;
+
+    & div {
+      border: 1px;
+    }
+
+    & > div {
+        margin:5px;
+    }
+
+    & .pic-name {
+      display: block; /* Fallback for non-webkit */
+      display: -webkit-box;
+      font-weight: bold;
+      word-wrap: break-word !important;
+      line-height: 1.4;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    & img {
+        height: 90px;
+        width: 100px;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

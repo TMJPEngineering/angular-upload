@@ -4,7 +4,8 @@
     <title>TMJ Show Modal</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type = "text/css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css" type = "text/css">
-    <link rel="stylesheet" href="../dist/css/upload.css" type = "text/css">
+    <link rel="stylesheet" href="../dist/css/angular-upload.min.css" type = "text/css">
+    <link rel="stylesheet" href="../node_modules/file-icons/dist/css/file-icons.min.css" type = "text/css">
   </head>
   <body>
     <div class = "container">
@@ -35,7 +36,9 @@
                   <li>multiple - to identify that multiple files is going to be uploaded.</li>
                 </ul>
               <hr>
-              <upload class = "btn btn-primary" target="#test2" multiple file-model="ac.test">Upload</upload>
+              <upload class = "btn btn-primary" target="#test2" multiple file-change="ac.try($event, $files)" file-model="ac.test2">
+                Upload
+              </upload>
               <div class ="col-md-12" id="test2">
                 <h3>#Container</h3>
               </div>
@@ -46,9 +49,11 @@
       </div>
     </div>
     <!-- Required Script -->
+    <script src="../node_modules/file-icons/dist/js/file-icon.min.js"></script>
     <script src = "../node_modules/angular/angular.min.js"></script>
-    <!-- Module level script -->
+
     <script src = "../dist/js/angular-upload.js"></script>
+    <!-- Module level script -->
     <!-- <script src = "../src/upload.module.js"></script>
     <script src = "../src/directives/upload.directive.js"></script>
     <script src = "../src/directives/change-file.directive.js"></script>

@@ -11,14 +11,20 @@
     function AppController() {
         var vm = this;
         vm.test = {};
+        vm.test2 = {};
         vm.try = tryThis;
         activate();
 
         function activate() {
 
         }
-        function tryThis() {
-            console.log(vm.test);
+        function tryThis(evt, files) {
+            console.log('trying this');
+
+            console.log(vm.test2);
+            console.log(evt);
+            console.log(files);
+            return 'eyayt';
         }
     }
 })();

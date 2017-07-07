@@ -1,0 +1,34 @@
+.single-image-container-panel {
+    position:relative;
+    background: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px grey;
+    padding-bottom: 10px;
+
+    & .pic-label {
+      display:none;
+    }
+
+    & img {
+        height: 90px;
+        width: 100px;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    & > .progress-container {
+      top:35px;
+    }
+
+    & > .progress-container .pic-name {
+        display: block; /* Fallback for non-webkit */
+        display: -webkit-box;
+        word-wrap: break-word !important;
+        line-height: 1.4;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
