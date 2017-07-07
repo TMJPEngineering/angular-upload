@@ -8,7 +8,7 @@ function uploadProgressContainer($templateCache) {
     function template() {
         return (
             '<div class ="row" >' +
-                '<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 single-image-container-panel" ng-class="{\'noprocess\': !fhc.uploadListener || !fhc.progress}" ng-repeat = "file in fhc.files">' +
+                '<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 single-image-container-panel" ng-class="{\'noprocess\': !fhc.showProgress }" ng-repeat = "file in fhc.files">' +
                     '<div class = "col-lg-3 col-md-3 col-sm-3 col-xs-3">' +
                         '<div class = "row">' +
                             '<img class = "img-thumbnail pic-img img-responsive center {{::file.iconClass}}" ng-src="{{::file.src}}">' +

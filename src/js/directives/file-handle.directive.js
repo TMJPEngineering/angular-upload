@@ -50,9 +50,7 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     var vm = this;
     vm.removeText = UPLOAD_CONFIG.TEXT.REMOVE;
     vm.progressText = UPLOAD_CONFIG.TEXT.PROGRESS;
-    vm.uploadListener = true;
-    vm.progress = 50;
-
+    vm.uploadListener;
     // this will be used in template
     vm.files = [];
     // will be use to hold all files from the local
@@ -164,7 +162,13 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     function initProgressListener(attrs) {
         // if there is no specified id don't create a listener
         var id = attrs.id;
-        if (!id) return;
+        vm.showProgress = attrs.showProgress;
+        
+        if (!vm.showProgress) return;
+
+        vm.progress = 0;
+        // if user added an attribute to show the progress check if it has an id
+        if (!id) return console.error('Please enter an id to identify the progress');
         // before creating a rootscope we should identify it individually by id
         vm.uploadListener = $rootScope.$on('$upload-listen-' + id, function(event, data) {
             vm.progress = ((data.loaded / data.total) * 100)

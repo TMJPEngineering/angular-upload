@@ -7,7 +7,7 @@ function uploadContainer($templateCache) {
 
     function template() {
         return (
-            '<div class ="row" ng-if="fhc.files.length && fhc.uploadListener && fhc.progress">' +
+            '<div class ="row" ng-if="fhc.files.length && fhc.showProgress">' +
                 '<div class = "col-md-12 progress-container">' +
                     '<span ng-bind="::fhc.progressText"> </span>' +
                     '<div class = "progress">' +
