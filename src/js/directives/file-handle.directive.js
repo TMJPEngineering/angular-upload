@@ -42,11 +42,12 @@ FileHandleController.$inject = [
     '$parse',
     '$file',
     'UPLOAD_CONFIG',
-    '$rootScope'
+    '$rootScope',
+    '$timeout'
 ];
 
 function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
-    UPLOAD_CONFIG, $rootScope) {
+    UPLOAD_CONFIG, $rootScope, $timeout) {
     var vm = this;
     vm.removeText = UPLOAD_CONFIG.TEXT.REMOVE;
     vm.progressText = UPLOAD_CONFIG.TEXT.PROGRESS;
@@ -66,8 +67,12 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
 
     // pass the scope of the directive
     function initTargetContainer(attrs) {
-        vm.targetElem = $upload.getAndInitTargetElem(attrs, $scope);
-        initProgressListener(attrs);
+
+        //added timeout to wait for others to take effect before getting the element
+        $timeout(function() {
+            vm.targetElem = $upload.getAndInitTargetElem(attrs, $scope);
+            initProgressListener(attrs);
+        }, 0, false)
     }
 
     function runFunction(attrs, scope, evt, files) {
