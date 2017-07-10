@@ -1,5 +1,5 @@
 /*
- * Angular-upload 1.0.0
+ * Angular-upload 1.0.3
  * @author TMJP Engineers | Rej Mediodia
  * @copyright 2017
  */

@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
- * Angular-upload 1.0.0
+ * Angular-upload 1.0.3
  * @author TMJP Engineers | Rej Mediodia
  * @copyright 2017
  */
@@ -69,7 +69,6 @@ function fileHandle() {
         el.on('change', onChange);
         scope.$on('$destroy', ctrl.destroyScopes)
         // check and initialize the target container
-        // console.log(ctrl);
         ctrl.initTargetContainer(attrs);
 
         function onChange(evt) {
@@ -88,11 +87,12 @@ FileHandleController.$inject = [
     '$parse',
     '$file',
     'UPLOAD_CONFIG',
-    '$rootScope'
+    '$rootScope',
+    '$timeout'
 ];
 
 function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
-    UPLOAD_CONFIG, $rootScope) {
+    UPLOAD_CONFIG, $rootScope, $timeout) {
     var vm = this;
     vm.removeText = UPLOAD_CONFIG.TEXT.REMOVE;
     vm.progressText = UPLOAD_CONFIG.TEXT.PROGRESS;
@@ -112,8 +112,12 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
 
     // pass the scope of the directive
     function initTargetContainer(attrs) {
-        vm.targetElem = $upload.getAndInitTargetElem(attrs, $scope);
-        initProgressListener(attrs);
+
+        //added timeout to wait for others to take effect before getting the element
+        $timeout(function() {
+            vm.targetElem = $upload.getAndInitTargetElem(attrs, $scope);
+            initProgressListener(attrs);
+        }, 0, false)
     }
 
     function runFunction(attrs, scope, evt, files) {

@@ -58,5 +58,5 @@ function init(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.registerTask('default', ['browserify', 'uglify', 'less', 'cssmin', 'watch']);
+    grunt.registerTask('default', ['browserify', 'uglify', 'less', 'cssmin']);
 }

@@ -1,6 +1,6 @@
 {
   "name": "tmj-angular-upload",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tmj default upload approach",
   "main": "index.js",
   "scripts": {
