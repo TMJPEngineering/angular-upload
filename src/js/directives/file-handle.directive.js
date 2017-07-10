@@ -80,6 +80,9 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
         // if there is no file model specified skip
         if (!attrs.fileModel) return;
 
+        // if single
+        if (!vm.multiple) return scope.fileModel = files[0];
+
         scope.fileModel = files;
     }
 
@@ -97,9 +100,11 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     }
 
     function sync(attrs, scope, files, evt) {
-        assignToModel(attrs, scope, files);
-        // after assigning to model run the function
-        runFunction(attrs, scope, evt, files);
+        scope.$evalAsync(function() {
+            assignToModel(attrs, scope, files);
+            // after assigning to model run the function
+            runFunction(attrs, scope, evt, files);
+        });
     }
 
     function showToTarget(multiple, files) {
@@ -163,7 +168,7 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
         // if there is no specified id don't create a listener
         var id = attrs.id;
         vm.showProgress = attrs.showProgress;
-        
+
         if (!vm.showProgress) return;
 
         vm.progress = 0;
@@ -177,7 +182,8 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
 
     function destroyScopes() {
         // remove the listener
-        vm.uploadListener();
+        if (vm.uploadListener)
+            vm.uploadListener();
     }
 }
 
