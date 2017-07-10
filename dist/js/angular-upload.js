@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
- * Angular-upload 1.0.3
+ * Angular-upload 1.0.4
  * @author TMJP Engineers | Rej Mediodia
  * @copyright 2017
  */
@@ -166,9 +166,21 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
             if (!files.hasOwnProperty(key))
                 continue;
             var file = files[key];
+
+            // insert file in list object for sync to work on single file
+            insertInList(file);
+
             // process each file
             processFile(file);
         }
+    }
+
+    function insertInList(file) {
+        if (!vm.multiple)
+            vm.lists[0] = file;
+        else
+            // to be inserted in model
+            vm.lists.push(file);
     }
 
     function processFile(file) {
@@ -190,8 +202,6 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
             // if multiple just push everything that it is put
             // to be shown in template
             vm.files.push(fileObj);
-            // to be inserted in model
-            vm.lists.push(file);
         });
     }
 
@@ -202,7 +212,6 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
 
         //else add it in array files to see in default template or provided
         vm.files[0] = fileObj;
-        vm.lists[0] = file;
     }
 
     function remove(index) {
