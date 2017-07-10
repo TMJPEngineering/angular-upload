@@ -23,7 +23,6 @@ function fileHandle() {
         el.on('change', onChange);
         scope.$on('$destroy', ctrl.destroyScopes)
         // check and initialize the target container
-        // console.log(ctrl);
         ctrl.initTargetContainer(attrs);
 
         function onChange(evt) {
