@@ -77,7 +77,7 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     function runFunction(attrs, scope, evt, files) {
         if (!attrs.fileChange) return;
 
-        scope.fileChange({$event: evt, $files: files});
+        scope.fileChange({$event: evt, $files: files, $fileRead: vm.files});
     }
 
     function assignToModel(attrs, scope, files) {
