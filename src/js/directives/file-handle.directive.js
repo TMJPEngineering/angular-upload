@@ -162,7 +162,7 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     function show(file, fileObj, img) {
         // if target is an img put it in the image element
         if (vm.targetElem.attr('src') != undefined)
-            return vm.targetElem.attr('src', img);
+            vm.targetElem.attr('src', img);
 
         //else add it in array files to see in default template or provided
         vm.files[0] = fileObj;
