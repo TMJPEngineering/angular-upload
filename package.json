@@ -1,6 +1,6 @@
 {
   "name": "tmj-angular-upload",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Tmj default upload approach",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "dependencies": {
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "file-icons": "git+ssh://git@github.com/TMJPEngineering/file-icons.git"
+    "tmj-file-icons": "^1.0.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
