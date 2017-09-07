@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type = "text/css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css" type = "text/css">
     <link rel="stylesheet" href="../dist/css/angular-upload.min.css" type = "text/css">
-    <link rel="stylesheet" href="../node_modules/file-icons/dist/css/file-icons.min.css" type = "text/css">
+    <link rel="stylesheet" href="../node_modules/tmj-file-icons/dist/css/file-icons.min.css" type = "text/css">
   </head>
   <body>
     <div class = "container">
@@ -47,12 +47,30 @@
               </div>
               <hr>
             </div>
+            <br><br>
+            <div class = "col-md-12">
+              <h2> Upload With Progress </h2>
+                <ul>
+                  <li>target - element to display what is uploaded.</li>
+                  <li>file-model - a variable to store the file to be uploaded same as `ngModel`.</li>
+                  <li>multiple - to identify that multiple files is going to be uploaded.</li>
+                  <li>show-progress - to allow creation of progress. id attribute is required for this to work</li>
+                </ul>
+              <hr>
+              <upload class = "btn btn-primary" target="#test2" multiple file-change="ac.try($event, $files)" id ="test4" show-progress="true" file-model="ac.test2">
+                Upload
+              </upload>
+              <div class ="col-md-12" id="test2">
+                <h3>#Container</h3>
+              </div>
+              <hr>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Required Script -->
-    <script src="../node_modules/file-icons/dist/js/file-icon.min.js"></script>
+    <script src="../node_modules/tmj-file-icons/dist/js/file-icon.min.js"></script>
     <script src = "../node_modules/angular/angular.min.js"></script>
 
     <script src = "../dist/js/angular-upload.js"></script>
