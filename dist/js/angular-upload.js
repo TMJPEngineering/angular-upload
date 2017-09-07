@@ -66,15 +66,21 @@ function fileHandle() {
     return directive;
 
     function linkFunc(scope, el, attrs, ctrl) {
+        el.on('click', onClick);
         el.on('change', onChange);
         scope.$on('$destroy', ctrl.destroyScopes)
         // check and initialize the target container
         ctrl.initTargetContainer(attrs);
 
         function onChange(evt) {
-            var files = event.target.files;
+            var files = evt.target.files;
             //on change show the files in the target
             ctrl.identifyTarget(attrs, scope, files, evt);
+        }
+
+        function onClick(evt) {
+            if (attrs.allowSameFile == "true")
+                evt.target.value = null;
         }
     }
 }
@@ -137,6 +143,8 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
     }
 
     function identifyTarget(attrs, scope, files, evt) {
+        vm.progress = 0;
+
         // check first if there is a target
         // if there is no target, input file act by default
         if (!attrs.target) return sync(attrs, scope, files, evt);
@@ -229,8 +237,6 @@ function FileHandleController($http, $upload, $compile, $scope, $parse, $file,
         vm.showProgress = attrs.showProgress;
 
         if (!vm.showProgress) return;
-
-        vm.progress = 0;
         // if user added an attribute to show the progress check if it has an id
         if (!id) return console.error('Please enter an id to identify the progress');
         // before creating a rootscope we should identify it individually by id
