@@ -26,7 +26,7 @@ function fileHandle() {
         ctrl.initTargetContainer(attrs);
 
         function onChange(evt) {
-            var files = event.target.files;
+            var files = evt.target.files;
             //on change show the files in the target
             ctrl.identifyTarget(attrs, scope, files, evt);
         }
